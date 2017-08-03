@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-
+import {Link} from "react-router-dom";
 import Product from './Product/Product';
 import ShoppingCart from 'react-icons/lib/fa/shopping-cart';
 
@@ -47,15 +47,19 @@ class Cart extends Component {
           <div id="Cart__details">
             { swagComponents }
           </div>
+          <Link to="/checkout" id="Cart__navLink">
           <div id="Cart__footer" onClick={ this.toggleCartDetails }>
             <span> Checkout </span>
           </div>
+          </Link>
         </div>
       :
+        <Link to="/details" id="CartProduct__navLink">
         <div id="Cart__container" onClick={ this.toggleCartDetails }>
           <span> <ShoppingCart id="Cart__icon" /> { howMuchSwag } items: </span>
           <span> ${ total } </span>
         </div>
+        </Link>
     )
   }
 }
